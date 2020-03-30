@@ -3,18 +3,21 @@ sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.back
 tmp=6
 read -p "Please select the centos version , input 6 or 7 or 8 : " tmp
 if [ "$tmp" == "6" ];then
+  sudo yum intall -y wget
   sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
   yum install -y epel-release
   sudo wget http://rpms.remirepo.net/enterprise/remi-release-6.rpm
   rpm -Uvh remi-release-6.rpm
   sudo sed -i '10s/enabled=0/enabled=1/g' /etc/yum.repos.d/remi.repo
 elif [ "$tmp" == "7" ];then
+  sudo yum intall -y wget
   sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
   sudo yum install -y epel-release
   sudo wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
   rpm -Uvh remi-release-7.rpm
   sudo sed -i '10s/enabled=0/enabled=1/g' /etc/yum.repos.d/remi.repo
 elif ["$tmp"=="8"];then
+  sudo yum intall -y wget
   sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
   sudo yum install -y epel-release
   sudo wget http://rpms.remirepo.net/enterprise/remi-release-8.rpm
