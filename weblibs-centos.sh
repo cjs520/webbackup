@@ -109,4 +109,6 @@ if [ "$tmsp" == "1" ];then
   sudo systemctl start  mysqld.service
   sudo yum -y remove mysql57-community-release-el7-10.noarch
 fi
-
+sudo yum install -y nodejs
+npm install -g n
+n latest
