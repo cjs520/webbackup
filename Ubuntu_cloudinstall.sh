@@ -1,3 +1,4 @@
+apt install -y git
 git clone https://gitee.com/jayson0201/cloudinstall.git
 mv cloudinstall/* ./
 
