@@ -47,4 +47,4 @@ systemctl enable cloudreve
 
 echo "安装完成，请用上面的账号密码登录，如若不行，请放行5212端口"
 
-
+rm -rf centos_cloudinstall.sh
