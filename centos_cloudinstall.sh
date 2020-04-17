@@ -4,7 +4,7 @@ mv cloudinstall/* ./
 
 tar -xvf cloudreve_3.0.0_linux_amd64.tar.gz
 rm -rf cloudreve_3.0.0_linux_amd64.tar.gz
-rm -rf cloudinstall/
+
 rm -rf cloudinstall/
 rm -rf LICENSE README.*
 
@@ -47,5 +47,6 @@ systemctl start cloudreve
 systemctl enable cloudreve
 
 echo "安装完成，请用上面的账号密码登录，如若不行，请放行5212端口"
+
 rm -rf centos_cloudinstall.sh
 
