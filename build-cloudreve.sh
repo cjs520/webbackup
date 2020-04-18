@@ -29,11 +29,17 @@ go get github.com/rakyll/statik
 export COMMIT_SHA=$(git rev-parse --short HEAD)
 export VERSION=$(git describe --tags)
 go build
+
+sleep 5
+
 mv cloudreve ../
 mv assets/build ../statics 
 cd ..&&rm -rf Cloudreve
+
 ./cloudreve >>passwd.txt &
+
 sleep 3
+
 pid=`ps -ef | grep cloudreve | grep -v grep | awk '{print $2}'`;kill $pid
 cat passwd.txt
 tmp=1
