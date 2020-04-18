@@ -6,13 +6,13 @@ if [ "$tmp" == "1" ];then
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-  sudo yum install yarn
+  sudo yum install -y yarn
 elif [ "$tmp" == "2" ];then
   sudo apt install -y go curl nodejs git
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-  sudo yum install yarn
+  sudo yum install -y yarn
 fi
 git clone --recurse-submodules https://github.com/cloudreve/Cloudreve.git
 cd Cloudreve
