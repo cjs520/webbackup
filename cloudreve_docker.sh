@@ -2,7 +2,7 @@
 tmp=1
 read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
 if [ "$tmp" == "1" ];then
-  sudo yum update
+  sudo yum update -y
   sudo yum install -y  curl  git yum-utils device-mapper-persistent-data lvm2
   sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
   sudo yum makecache fast
@@ -13,7 +13,7 @@ if [ "$tmp" == "1" ];then
   
 elif [ "$tmp" == "2" ];then
   sudo apt remove docker docker-engine docker.io containerd runc
-  sudo apt update
+  sudo apt update -y
   sudo apt install -y  curl  git apt-transport-https ca-certificates gnupg-agent software-properties-common
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
@@ -29,7 +29,7 @@ docker run -itd --name=cloudreve -e PUID=1000   -e PGID=1000 -e TZ="Asia/Shangha
 echo "配置caddy反代"
 wget https://raw.githubusercontent.com/cjs520/webbackup/master/caddy.sh&&bash caddy.sh
 dir1=“/root”
-rpc="123456"
+rpc=123456
 echo "docker运行aria2"
 read -p "请输入你的aria2安装目录:(默认root) " dir1
 mkdir -p $dir1/config &&touch $dir1/downloads
