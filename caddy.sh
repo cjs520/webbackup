@@ -1,6 +1,16 @@
 
+tmp=1
+read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
+if [ "$tmp" == "1" ];then
+  sudo yum update
+  sudo yum install -y curl
+elif [ "$tmp" == "2" ];then
+  
+  sudo apt update
+  sudo apt install -y curl
+ 
+fi
 
-yum install -y curl
 curl https://getcaddy.com | bash -s personal
 name=https://www.baidu.com
 read -p "请输入你的域名:(默认：https://www.baidu.com)  : " name
