@@ -29,10 +29,10 @@ docker run -itd --name=cloudreve -e PUID=1000   -e PGID=1000 -e TZ="Asia/Shangha
 echo "配置caddy反代"
 wget https://raw.githubusercontent.com/cjs520/webbackup/master/caddy.sh&&bash caddy.sh
 rm -rf caddy.sh
-dir1=“/root”
+dir1=“/home”
 
 echo "docker运行aria2"
-read -p "请输入你的aria2安装目录:(默认root) " dir1
+read -p "请输入你的aria2安装目录:(默认home) " dir1
 mkdir -p $dir1/config &&touch $dir1/downloads
 rpc="123456"
 read -p "请输入你的aria2的RPC密钥:(默认123456) " rpc
