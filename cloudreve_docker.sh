@@ -34,10 +34,12 @@ dir1=“/root”
 echo "docker运行aria2"
 read -p "请输入你的aria2安装目录:(默认root) " dir1
 mkdir -p $dir1/config &&touch $dir1/downloads
-rpc=123456
+rpc="123456"
 read -p "请输入你的aria2的RPC密钥:(默认123456) " rpc
 docker run -d --name aria2 --restart unless-stopped --log-opt max-size=1m -e PUID=1000 -e PGID=1000 -e RPC_SECRET=$rpc -p 6800:6800 -p 6888:6888 -p 6888:6888/udp --network my-network -v $dir1/config:/config -v $dir1/downloads:/downloads p3terx/aria2-pro
+sleep 3
 
+docker logs -f cloudreve
 echo && echo -e " aria2 RPC密钥: $rpc
 aria2下载目录：$dir1/downloads
  cloudreve-docker安装完成！" && echo
