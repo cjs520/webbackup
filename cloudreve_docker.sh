@@ -41,7 +41,9 @@ sleep 3
 
 echo && echo -e " aria2 RPC密钥: $ww
 aria2下载目录：$dir1/downloads
- cloudreve-docker安装完成！" && echo
+ cloudreve-docker安装完成！
+ cloudreve账号密码：(ctrl C退出)" && echo
+ docker logs -f cloudreve
 
 
 
