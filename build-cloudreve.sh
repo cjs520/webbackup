@@ -15,7 +15,7 @@ elif [ "$tmp" == "2" ];then
   sudo yum install -y yarn
 fi
 git clone --recurse-submodules https://github.com/cloudreve/Cloudreve.git
-cd Cloudreve
+cd Cloudreve/
 echo "构建静态资源"
 cd assets/
 yarn install
@@ -30,23 +30,27 @@ export COMMIT_SHA=$(git rev-parse --short HEAD)
 export VERSION=$(git describe --tags)
 go build
 
-sleep 5
+sleep 20
 
 mv cloudreve ../
 mv assets/build ../statics 
-cd ..&&rm -rf Cloudreve
 
+sleep 5
+
+cd ..
 ./cloudreve >>passwd.txt &
 
-sleep 3
-
 pid=`ps -ef | grep cloudreve | grep -v grep | awk '{print $2}'`;kill $pid
+
 cat passwd.txt
-tmp=1
-read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
-if [ "$tmp" == "1" ];then
-  cloudpath=$(cd `dirname $0`; pwd)
-cat >/usr/lib/systemd/system/cloudreve.service <<EOF
+
+sleep 10
+
+tm=1
+cloudpath=$(cd `dirname $0`; pwd)
+read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tm
+if [ "$tm" == "1" ];then
+  cat >/usr/lib/systemd/system/cloudreve.service <<EOF
 [Unit]
 Description=Cloudreve
 Documentation=https://docs.cloudreve.org
@@ -70,9 +74,8 @@ systemctl daemon-reload
 systemctl start cloudreve
 # 设置开机启动
 systemctl enable cloudreve
-elif [ "$tmp" == "2" ];then
-  cloudpath=$(cd `dirname $0`; pwd)
-cat >/lib/systemd/system/cloudreve.service <<EOF
+elif [ "$tm" == "2" ];then
+ cat >/lib/systemd/system/cloudreve.service <<EOF
 [Unit]
 Description=Cloudreve
 Documentation=https://docs.cloudreve.org
@@ -97,7 +100,7 @@ systemctl start cloudreve
 # 设置开机启动
 systemctl enable cloudreve
 fi
-
+rm -rf Cloudreve/
 
 echo && echo -e " Cloudreve V3 安装成功 
 -- Jay | blog: https://www.dsza.xyz

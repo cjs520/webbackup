@@ -69,12 +69,12 @@ check_pid(){
 	PID=`ps -ef| grep "aria2c"| grep -v grep| grep -v "aria2.sh"| grep -v "init.d"| grep -v "service"| awk '{print $2}'`
 }
 check_new_ver(){
-	echo -e "${Info} 请输入 Aria2 版本号，格式如：[ 1.34.0 ]，获取地址：[ https://github.com/q3aql/aria2-static-builds/releases ]"
+	echo -e "${Info} 请输入 Aria2 版本号，格式如：[ 1.34.0 ]，获取地址：[ https://github.wuyanzheshui.workers.dev/q3aql/aria2-static-builds/releases ]"
 	read -e -p "默认回车自动获取最新版本号:" aria2_new_ver
 	if [[ -z ${aria2_new_ver} ]]; then
-		aria2_new_ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/q3aql/aria2-static-builds/releases | grep -o '"tag_name": ".*"' |head -n 1| sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
+		aria2_new_ver=$(wget --no-check-certificate -qO- https://api.github.wuyanzheshui.workers.dev/repos/q3aql/aria2-static-builds/releases | grep -o '"tag_name": ".*"' |head -n 1| sed 's/"//g;s/v//g' | sed 's/tag_name: //g')
 		if [[ -z ${aria2_new_ver} ]]; then
-			echo -e "${Error} Aria2 最新版本获取失败，请手动获取最新版本号[ https://github.com/q3aql/aria2-static-builds/releases ]"
+			echo -e "${Error} Aria2 最新版本获取失败，请手动获取最新版本号[ https://github.wuyanzheshui.workers.dev/q3aql/aria2-static-builds/releases ]"
 			read -e -p "请输入版本号 [ 格式如 1.34.0 ] :" aria2_new_ver
 			[[ -z "${aria2_new_ver}" ]] && echo "取消..." && exit 1
 		else
@@ -112,7 +112,7 @@ Download_aria2(){
 	else
 		bit="arm-rbpi"
 	fi
-	wget -N --no-check-certificate "https://github.com/q3aql/aria2-static-builds/releases/download/v${aria2_new_ver}/aria2-${aria2_new_ver}-linux-gnu-${bit}-build1.tar.bz2"
+	wget -N --no-check-certificate "https://github.wuyanzheshui.workers.dev/q3aql/aria2-static-builds/releases/download/v${aria2_new_ver}/aria2-${aria2_new_ver}-linux-gnu-${bit}-build1.tar.bz2"
 	Aria2_Name="aria2-${aria2_new_ver}-linux-gnu-${bit}-build1"
 	
 	[[ ! -s "${Aria2_Name}.tar.bz2" ]] && echo -e "${Error} Aria2 压缩包下载失败 !" && exit 1
