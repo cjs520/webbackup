@@ -12,12 +12,12 @@ elif [ "$tmp" == "2" ];then
 fi
 
 curl https://getcaddy.com | bash -s personal
-name=https://www.baidu.com
-read -p "请输入你的域名:(默认：https://www.baidu.com)  : " name
-email=admin@cloudreve.org
-read -p "请输入你的邮箱:(默认：admin@cloudreve.org)  : " email
-address=admin@cloudreve.org
-read -p "请输入你反代的地址:(默认：http://127.0.0.1:5212)  : " address
+name="https://www.baidu.com"
+read -p "请输入你的域名:(示例：https://www.baidu.com)  : " name
+email="admin@cloudreve.org"
+read -p "请输入你的邮箱:(示例：admin@cloudreve.org)  : " email
+address="http://127.0.0.1:5212"
+read -p "请输入你反代的地址:(示例：http://127.0.0.1:5212)  : " address
 echo "$name {
 gzip
 tls $email

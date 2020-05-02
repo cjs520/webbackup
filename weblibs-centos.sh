@@ -113,4 +113,4 @@ sudo yum install -y nodejs
 npm install -g n
 n latest
 curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-sudo yum install yarn
+sudo yum install -y yarn

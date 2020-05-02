@@ -29,11 +29,12 @@ docker run -itd --name=cloudreve -e PUID=1000   -e PGID=1000 -e TZ="Asia/Shangha
 echo "配置caddy反代"
 wget https://raw.githubusercontent.com/cjs520/webbackup/master/caddy.sh&&bash caddy.sh
 rm -rf caddy.sh
+docker network create my-network
 dir1=“/home/aria2”
 
 echo "docker运行aria2"
 read -p "请输入你的aria2安装目录:(默认home/aria2) " dir1
-mkdir -p $dir1/config &&touch $dir1/downloads
+mkdir -p $dir1/config &&mkdir -p $dir1/downloads
 ww=qaz123
 read -p "请输入你的aria2的RPC密钥:(默认qaz123) " ww
 docker run -d --name aria2 --restart unless-stopped --log-opt max-size=1m -e PUID=1000 -e PGID=1000 -e RPC_SECRET=$ww -p 6800:6800 -p 6888:6888 -p 6888:6888/udp --network my-network -v $dir1/config:/config -v $dir1/downloads:/downloads p3terx/aria2-pro
