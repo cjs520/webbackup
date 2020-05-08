@@ -2,11 +2,11 @@
 tmp=1
 read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
 if [ "$tmp" == "1" ];then
-  sudo yum update
+  sudo yum update -y
   sudo yum install -y curl
 elif [ "$tmp" == "2" ];then
   
-  sudo apt update
+  sudo apt update -y
   sudo apt install -y curl
  
 fi
