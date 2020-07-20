@@ -11,6 +11,7 @@ elif [ "$tmp" == "2" ];then
  
 fi
 
+ulimit -n 8192
 curl https://getcaddy.com | bash -s personal
 name="https://www.baidu.com"
 read -p "请输入你的域名:(示例：https://www.baidu.com)  : " name
@@ -24,7 +25,7 @@ tls $email
 proxy / $address
 }" > /usr/local/bin/Caddyfile
 
-ulimit -n 8192
+
 
 if ! wget --no-check-certificate https://raw.githubusercontent.com/cjs520/webbackup/master/manager/caddy -O /etc/init.d/caddy; then
 			echo -e " Caddy服务 管理脚本下载失败 ! 下载备用脚本" && wget --no-check-certificate https://gitee.com/jayson0201/webbackup/raw/master/manager/caddy -O /etc/init.d/caddy
