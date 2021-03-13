@@ -11,20 +11,22 @@ elif [ "$tmp" == "2" ];then
  
 fi
 
-curl https://getcaddy.com | bash -s personal
-name="https://www.baidu.com"
-read -p "请输入你的域名:(示例：https://www.baidu.com)  : " name
+ulimit -n 8192
+wget https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.tar.gz
+tar -vxf caddy_2.3.0_linux_amd64.tar.gz 
+mv ./caddy /usr/local/bin/
+name="www.baidu.com"
+read -p "请输入你的域名:(示例：www.baidu.com)  : " name
 email="admin@cloudreve.org"
 read -p "请输入你的邮箱:(示例：admin@cloudreve.org)  : " email
 address="http://127.0.0.1:5212"
 read -p "请输入你反代的地址:(示例：http://127.0.0.1:5212)  : " address
 echo "$name {
-gzip
-tls $email
-proxy / $address
+
+reverse_proxy / $address
 }" > /usr/local/bin/Caddyfile
 
-ulimit -n 8192
+
 
 if ! wget --no-check-certificate https://raw.githubusercontent.com/cjs520/webbackup/master/manager/caddy -O /etc/init.d/caddy; then
 			echo -e " Caddy服务 管理脚本下载失败 ! 下载备用脚本" && wget --no-check-certificate https://gitee.com/jayson0201/webbackup/raw/master/manager/caddy -O /etc/init.d/caddy
