@@ -2,11 +2,11 @@
 tmp=1
 read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
 if [ "$tmp" == "1" ];then
-  sudo yum update
+  sudo yum update -y
   sudo yum install -y curl
 elif [ "$tmp" == "2" ];then
   
-  sudo apt update
+  sudo apt update -y
   sudo apt install -y curl
  
 fi
@@ -17,8 +17,6 @@ tar -vxf caddy_2.3.0_linux_amd64.tar.gz
 mv ./caddy /usr/local/bin/
 name="www.baidu.com"
 read -p "请输入你的域名:(示例：www.baidu.com)  : " name
-email="admin@cloudreve.org"
-read -p "请输入你的邮箱:(示例：admin@cloudreve.org)  : " email
 address="http://127.0.0.1:5212"
 read -p "请输入你反代的地址:(示例：http://127.0.0.1:5212)  : " address
 echo "$name {
