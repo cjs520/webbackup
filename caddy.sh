@@ -21,7 +21,7 @@ address="http://127.0.0.1:5212"
 read -p "请输入你反代的地址:(示例：http://127.0.0.1:5212)  : " address
 echo "$name {
 
-reverse_proxy / $address
+reverse_proxy  $address
 }" > /usr/local/bin/Caddyfile
 
 
