@@ -11,7 +11,7 @@ elif [ "$tmp" == "2" ];then
  
 fi
 
-ulimit -n 8192
+
 wget https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.tar.gz
 tar -vxf caddy_2.3.0_linux_amd64.tar.gz 
 mv ./caddy /usr/local/bin/
@@ -40,3 +40,6 @@ echo && echo -e " Caddy 使用命令：${caddy_conf_file}
  使用说明：service caddy start | stop | restart | status
  或者使用：/etc/init.d/caddy start | stop | restart | status
   Caddy 安装完成！" && echo
+
+ulimit -n 8192
+service caddy start
