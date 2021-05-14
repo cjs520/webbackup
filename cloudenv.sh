@@ -34,7 +34,8 @@ export GOPATH=/root/go
 export PATH=$PATH:/usr/local/go/bin
 ">>~/.bashrc
 
-sleep
+sleep 10
+
 source  ~/.bashrc
 
 
