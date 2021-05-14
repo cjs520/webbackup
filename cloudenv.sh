@@ -1,28 +1,32 @@
-wget https://studygolang.com/dl/golang/go1.15.10.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.15.10.linux-amd64.tar.gz
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
-export GOPATH=/root/go
-export PATH=$PATH:$GOPATH/bin
-
-
-
 tmp=1
 read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
 if [ "$tmp" == "1" ];then
-  sudo yum install -y  curl nodejs git
+  sudo yum install -y  curl  git
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
   sudo yum install -y yarn
 elif [ "$tmp" == "2" ];then
-  sudo apt install -y  curl nodejs git
+  sudo apt install -y  curl  git
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
-  sudo yum install -y yarn
+  sudo apt install -y yarn
 fi
 
+curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+wget https://studygolang.com/dl/golang/go1.15.10.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.15.10.linux-amd64.tar.gz
+echo "
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=/root/go
+export PATH=$PATH:$GOPATH/bin
+">>~/.bashrc
+
+source  ~/.bashrc
+
+sleep 5
 
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 sleep 5
