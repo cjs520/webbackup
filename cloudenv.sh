@@ -1,10 +1,11 @@
 tmp=1
 read -p "请选择你的系统类型, Centos输入 1 ，Ubuntu输入 2  : " tmp
 if [ "$tmp" == "1" ];then
-  sudo yum install -y  curl
+  sudo yum install -y  curl 
   sleep 5
   echo "安装node，npm，yarn"
   curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+  yum install -t nodejs
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
@@ -14,11 +15,15 @@ elif [ "$tmp" == "2" ];then
   sleep 5
   echo "安装node，npm，yarn"
   curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+  apt install -t nodejs
   npm install -g n
   n latest
-  curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo apt install -y yarn
 fi
+
+sleep 10
 
 echo "安装go"
 wget https://studygolang.com/dl/golang/go1.15.10.linux-amd64.tar.gz
@@ -29,6 +34,7 @@ export GOPATH=/root/go
 export PATH=$PATH:/usr/local/go/bin
 ">>~/.bashrc
 
+sleep
 source  ~/.bashrc
 
 
@@ -36,7 +42,7 @@ sleep 5
 echo "安装docker"
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 sleep 5
-systemctl start docker
+service docker start
 sleep 5
 docker pull karalabe/xgo-latest
 sleep 10
