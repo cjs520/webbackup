@@ -47,6 +47,9 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 sleep 5
 service docker start
 sleep 5
+echo "安装docker-compose"
+curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+sleep 5
 docker pull karalabe/xgo-latest
 sleep 10
 go get github.com/karalabe/xgo
