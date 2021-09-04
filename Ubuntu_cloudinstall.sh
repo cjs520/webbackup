@@ -37,10 +37,6 @@ StandardOutput=null
 StandardError=syslog
 [Install]
 WantedBy=multi-user.target
-EOF
-
-# 更新配置
-systemctl daemon-reload
 # 启动服务
 systemctl start cloudreve
 # 设置开机启动
