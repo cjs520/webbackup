@@ -20,7 +20,7 @@ read -p "请输入你的域名:(示例：www.baidu.com)  : " name
 address="http://127.0.0.1:5212"
 read -p "请输入你反代的地址:(示例：http://127.0.0.1:5212)  : " address
 echo "$name {
-
+encode gzip
 reverse_proxy  $address
 }" > /usr/local/bin/Caddyfile
 
