@@ -2,8 +2,8 @@ yum install -y git
 git clone https://gitee.com/jayson0201/cloudinstall.git
 mv cloudinstall/* ./
 
-tar -xvf cloudreve_3.3.2_linux_amd64.tar.gz
-rm -rf cloudreve_3.3.2_linux_amd64.tar.gz
+tar -xvf cloudreve_3.5.3_linux_amd64.tar.gz
+rm -rf cloudreve_3.5.3_linux_amd64.tar.gz
 
 rm -rf cloudinstall/
 rm -rf LICENSE README.*
