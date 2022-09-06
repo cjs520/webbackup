@@ -5,7 +5,7 @@ if [ "$tmp" == "1" ];then
   sleep 5
   echo "安装node，npm，yarn"
   curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
-  yum install -t nodejs
+  yum install -t nodejs npm
   npm install -g n
   n latest
   curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
@@ -15,7 +15,7 @@ elif [ "$tmp" == "2" ];then
   sleep 5
   echo "安装node，npm，yarn"
   curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
-  sudo apt-get install -y nodejs
+  sudo apt-get install -y nodejs npm
   npm install -g n
   n latest
  rm -rf /usr/bin/node
