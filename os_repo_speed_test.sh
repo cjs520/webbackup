@@ -22,7 +22,6 @@ mirrors=(
   [edu_lzu]="http://mirror.lzu.edu.cn/"
   [edu_bjtu]="https://mirror.bjtu.edu.cn/"
   [edu_bit]="http://mirror.bit.edu.cn/"
-  [edu_cqu]="http://mirrors.cqu.edu.cn/"
   [edu_dlut]="http://mirror.dlut.edu.cn/"
   [edu_zju]="http://mirrors.zju.edu.cn/"
   [edu_tsinghua]="https://mirrors.tuna.tsinghua.edu.cn/"
