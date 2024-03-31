@@ -1,8 +1,17 @@
-# 使用 Alpine 作为基础镜像
-FROM alpine:latest
+# 使用 BuildKit 的多架构构建功能
+# syntax=docker/dockerfile:1.2
 
-#  设置镜像源为阿里云的 Alpine 镜像源
-# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# 为 x86_64 架构指定基础镜像
+FROM --platform=linux/amd64 alpine:latest AS amd64
+
+# 为 arm64 架构指定基础镜像
+FROM --platform=linux/arm64 alpine:latest AS arm64
+
+# 为 arm32 架构指定基础镜像
+FROM --platform=linux/arm/v7 alpine:latest AS arm32
+
+# 为所有架构执行相同的操作
+# 注意：这里只是一个示例，具体的操作可能需要根据实际需求进行调整
 
 # 安装 TFTP 服务器和相关工具
 RUN apk add --no-cache tftp-hpa
@@ -13,7 +22,8 @@ RUN mkdir -p /srv/tftp && \
     addgroup -S tftpd && \
     adduser -s /bin/false -S -D -H -h /data -G tftpd tftpd
 
-# 下载 netboot.xyz.efi 文件并将其重命名为 amd.efi
+# 下载 netboot.xyz.efi 文件并将其重命名
+# 注意：这里需要根据不同的架构下载对应的 EFI 文件
 RUN wget -O /srv/tftp/amd.efi https://boot.netboot.xyz/ipxe/netboot.xyz.efi && \
     wget -O /srv/tftp/arm.efi https://boot.netboot.xyz/ipxe/netboot.xyz-arm64.efi && \
     chmod 644 /srv/tftp/amd.efi && \
