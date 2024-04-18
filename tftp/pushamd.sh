@@ -1,0 +1,1 @@
+docker build --no-cache -t cjs520/tftp-netboot:amd64  --push  -f Dockerfileamd .

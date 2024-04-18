@@ -1,16 +1,6 @@
-# 使用 BuildKit 的多架构构建功能
-# syntax=docker/dockerfile:1.2
 
 # 为 x86_64 架构指定基础镜像
-FROM  alpine:latest AS amd64
-
-# 为 arm64 架构指定基础镜像
-FROM --platform=linux/arm64 alpine:latest AS arm64
-
-
-
-# 为所有架构执行相同的操作
-# 注意：这里只是一个示例，具体的操作可能需要根据实际需求进行调整
+FROM  alpine:latest 
 
 # 安装 TFTP 服务器和相关工具
 RUN apk add --no-cache tftp-hpa

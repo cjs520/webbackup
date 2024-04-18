@@ -1,0 +1,1 @@
+docker buildx build --no-cache --platform linux/arm64 -t cjs520/tftp-netboot:arm64 --push .
