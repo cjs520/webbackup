@@ -29,7 +29,7 @@
         "required": true  
     },
     "fax": {
-        "value": "+447817811970",
+        "value": "+44.7817811970",
         "required": false   
     },
     "job_title": {
@@ -53,7 +53,7 @@
         "required": false
     },
     "phone": {
-        "value": "+447817811970",
+        "value": "+44.7817811970",
         "required": true   
     }
 }
