@@ -12,7 +12,7 @@
         "required": true
     },
     "country": {
-        "value": "UK",
+        "value": "US",
         "required": true,
         "options": []   
     },
@@ -33,7 +33,7 @@
         "required": false   
     },
     "job_title": {
-        "value": "Civil Engineer, Computer Numerically Controlled Machine Tool Programmer",
+        "value": "Civil Engineer",
         "required": false  
     },
     "name_first": {
