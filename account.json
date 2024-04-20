@@ -1,0 +1,59 @@
+{
+    "address1": {
+        "value": "62 East St",
+        "required": true
+    },
+    "address2": {
+        "value": "",
+        "required": false
+    },
+    "city": {
+        "value": "Chichester",
+        "required": true
+    },
+    "country": {
+        "value": "UK",
+        "required": true,
+        "options": []   
+    },
+    "postal_code": {
+        "value": "CH3E 6JH",
+        "required": true  
+    },
+    "state": {
+        "value": "England",
+        "required": true
+    },
+    "email": {
+        "value": "zxzx412@861652.xyz",
+        "required": true  
+    },
+    "fax": {
+        "value": "+44447817811970",
+        "required": false   
+    },
+    "job_title": {
+        "value": "Civil Engineer, Computer Numerically Controlled Machine Tool Programmer",
+        "required": false  
+    },
+    "name_first": {
+        "value": "Olo",
+        "required": true  
+    },
+    "name_last": {
+        "value": "Polo",
+        "required": true  
+    },
+    "name_middle": {
+        "value": "",
+        "required": false
+    },
+    "organization": {
+        "value": "Organization",
+        "required": false
+    },
+    "phone": {
+        "value": "+447817811970",
+        "required": true   
+    }
+}
